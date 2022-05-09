@@ -21,8 +21,7 @@ export const getDate = () => {
     var day = dateObj.getUTCDate();
 
 
-    //return `${day < 10 && 0}${day}/${month < 10 && 0}${month}`
-    return '09/05'
+    return `${day < 10 && 0}${day}/${month < 10 && 0}${month}`
 }
 
 export const setStats = (person, guesses, date) => {

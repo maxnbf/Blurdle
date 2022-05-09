@@ -5,6 +5,7 @@ import { useState } from 'react';
 import React from 'react';
 import InfoModal from './components/banner/info-modal/InfoModal';
 import StatsModal from './components/banner/stats-modal/StatsModal';
+import Footer from './components/footer/Footer';
 const App = () => {
   const [modal, setModal] = useState(false);
 
@@ -17,6 +18,8 @@ const App = () => {
       <Game/>
       {modal === 'info' && <InfoModal setModal={setModal}/>}
       {modal === 'stats' && <StatsModal setModal={setModal}/>}
+
+      <Footer />
     </div>
   );
 }

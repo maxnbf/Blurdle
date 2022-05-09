@@ -11,3 +11,5 @@ export const Guess = styled.div`
     color: white;
     background-color: ${props => props.correct ? 'green' : 'none'};
 `
+
+
