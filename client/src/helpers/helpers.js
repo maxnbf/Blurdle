@@ -25,35 +25,41 @@ export const getDate = () => {
 }
 
 export const setStats = (person, guesses, date) => {
-    var played = parseInt(localStorage.getItem('played'));
-    var wins = parseInt(localStorage.getItem('wins'));
+    var played = localStorage.getItem('played');
+    var wins = localStorage.getItem('wins');
     var previousPlay = localStorage.getItem('previousPlay');
-    var currStreak = parseInt(localStorage.getItem('currStreak'));
+    var currStreak = localStorage.getItem('currStreak');
     var bestStreak = parseInt(localStorage.getItem('bestStreak'));
     var distr = JSON.parse(localStorage.getItem('distr'));
 
     var winToday = guesses.includes(person);
 
-    played = played === null ? 1 : played + 1
-    wins = wins === null ? winToday : winToday + 1
-    currStreak = currStreak === null ? winToday && wasYesterday(previousPlay, date) ? 1 : 0 : winToday && wasYesterday(previousPlay, date) ? currStreak + 1 : currStreak;
-    bestStreak = currStreak > bestStreak ? currStreak : bestStreak;
+    //to prevent double counting with double renders??
+    if (previousPlay !== date) {
+        played = played === null ? 1 : parseInt(played) + 1
+        wins = wins === null ? winToday ? 1 : 0 : parseInt(wins) + 1
+        currStreak = currStreak === null ? winToday ? 1 : 0 : winToday && previousPlay !== null && wasYesterday(previousPlay, date) ?  parseInt(currStreak) + 1 :  parseInt(currStreak);
+        bestStreak =  bestStreak !== null && parseInt(currStreak) > parseInt(bestStreak) ?  parseInt(currStreak) : currStreak;
 
-    if (distr === null && winToday) {
-        distr = { [guesses.indexOf(person)+1]: 1 }
-    } else {
-        distr = { ...distr, [guesses.indexOf(person)+1]: distr[guesses.indexOf(person)+1] + 1}
+
+        if (distr === null && winToday) {
+            distr = { [guesses.indexOf(person)+1]: 1 }
+        } else {
+            distr = { ...distr, [guesses.indexOf(person)+1]: distr[guesses.indexOf(person)+1] + 1}
+        }
+
+        previousPlay = date;
     }
-
-    previousPlay = date;
 
 
     localStorage.setItem('played', played)
     localStorage.setItem('wins', wins,)
-    localStorage.setItem('previousPlay', previousPlay);
+    localStorage.setItem('previousPlay', date);
     localStorage.setItem('currStreak', currStreak)
     localStorage.setItem('bestStreak', bestStreak)
     localStorage.setItem('distr', JSON.stringify(distr))
+
+
 
 }
 

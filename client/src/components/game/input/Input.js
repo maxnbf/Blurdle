@@ -13,11 +13,12 @@ const Input = ({options, addGuess, isOver}) => {
             addGuess(selection[0]);
         }
     }
-    //console.log('selection', selection)
+
+    const typeaheadOptions = options.map(option => option.name)
     return <>
             <Typeahead
                 onChange={setSelection}
-                options={options}
+                options={typeaheadOptions}
                 placeholder="Guess a player"
                 selected={selection}
                 id="typeahead"

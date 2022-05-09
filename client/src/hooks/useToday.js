@@ -7,7 +7,7 @@ import { options } from "../helpers/options";
 export const useToday = (todayString) => {
 
     
-    const [today, setToday] = useState({ person: null, guesses: [] });
+    const [today, setToday] = useState({ person: null, image: null, guesses: [] });
 
     const addGuess = useCallback(
         (newGuess) => {
@@ -17,7 +17,7 @@ export const useToday = (todayString) => {
     
           const newGuesses = [...today.guesses, newGuess];
     
-          setToday((prev) => ({ person: prev.person, guesses: newGuesses }));
+          setToday((prev) => ({ person: prev.person, image: prev.image, guesses: newGuesses }));
           saveGuesses(todayString, newGuesses);
         },
         [today, todayString]
@@ -33,10 +33,10 @@ export const useToday = (todayString) => {
         const option = Math.floor(rng() * options.length)
         const person = options[option]
     
-        setToday({ person: person.name, guesses });
+        setToday({ person: person.name, image: person.image, guesses });
     }, [todayString]);
 
-    return {options, today, addGuess}
+    return {today, addGuess}
 }
 
 
