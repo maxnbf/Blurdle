@@ -27,8 +27,7 @@ export const useToday = (todayString) => {
 
     useEffect(() => {
         var rng = seedrandom(todayString);
-        rng()
-
+        
         const guesses = loadAllGuesses()[todayString] ?? [];
         const option = Math.floor(rng() * options.length)
         const person = options[option]

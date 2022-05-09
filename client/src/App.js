@@ -4,7 +4,6 @@ import Banner from './components/banner/Banner';
 
 function App() {
 
-  //localStorage.clear()
   return (
     <div className="App">
       <Banner/>

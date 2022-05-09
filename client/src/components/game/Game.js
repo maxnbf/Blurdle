@@ -26,7 +26,7 @@ const Game = () => {
 
 
     return <Container>
-        <Image length={isOver ? 15 : guesses.length} img={image}/>
+        <Image isOver={isOver} person={person} length={isOver ? 15 : guesses.length} img={image}/>
         <Guesses guesses={guesses} person={person}/> 
         
         {isOver ? <Share guesses={guesses} person={person}/> : <Input options={options} addGuess={addGuess} isOver={isOver}/>}

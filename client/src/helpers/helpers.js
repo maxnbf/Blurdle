@@ -22,7 +22,7 @@ export const getDate = () => {
 
 
     //return `${day < 10 && 0}${day}/${month < 10 && 0}${month}`
-    return '18/05'
+    return '09/05'
 }
 
 export const setStats = (person, guesses, date) => {

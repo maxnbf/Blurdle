@@ -8,11 +8,23 @@ export const BlurredImage = styled(blur)`
     border-radius: 10px;
 
     margin-bottom: 40px;
-    
+    position: relative;
 
     > canvas {
         padding: 5px;
         margin: -9px;
         border-radius: 10px;
     }
+`
+
+export const PersonName = styled.div`
+    text-align: center;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bolder;
+    color: white;
+    background: gray;
+    border-radius: 15px;
 `

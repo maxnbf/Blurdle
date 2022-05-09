@@ -7,7 +7,6 @@ const Share = ({guesses, person}) => {
     const text = useMemo(() => {
         
         let result = Array.from(Array(5).keys()).map((index) => {
-            console.log(guesses, index, person)
             if(guesses[index] !== person && index < guesses.length) {
                 return "🟥";
             } else if (guesses[index] === person) {

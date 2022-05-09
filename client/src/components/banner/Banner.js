@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import InfoModal from './info-modal/InfoModal';
 import StatsModal from './stats-modal/StatsModal';
 import { BannerBorder, BannerContainer, Info, Title, Trophy } from './style';
 const Banner = () => {
@@ -10,7 +11,7 @@ const Banner = () => {
             <Title>Blurdle</Title>
             <Trophy onClick = {() => setModal('stats')}/>
         </BannerContainer>
-        {modal === 'info' && <div></div>}
+        {modal === 'info' && <InfoModal setModal={setModal}/>}
         {modal === 'stats' && <StatsModal setModal={setModal}/>}
     </BannerBorder>
 }
