@@ -4,7 +4,7 @@ import blur from 'react-blur';
 
 export const Modal = styled.div`
     width: 350px;
-    height: 375px;
+    min-height: 375px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -15,6 +15,7 @@ export const Modal = styled.div`
     z-index: 5;
     border: 1px solid gray;
     color: white;
+    overflow: hidden;
 `
 
 export const Header = styled.h4`
