@@ -13,6 +13,7 @@ export const Modal = styled.div`
     z-index: 5;
     border: 1px solid gray;
     color: white;
+    overflow: hidden;
 `
 
 export const Header = styled.h4`

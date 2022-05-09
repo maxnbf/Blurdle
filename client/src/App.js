@@ -1,13 +1,22 @@
 import './App.css';
 import Game from './components/game/Game';
 import Banner from './components/banner/Banner';
-
-function App() {
+import { useState } from 'react';
+import React from 'react';
+import InfoModal from './components/banner/info-modal/InfoModal';
+import StatsModal from './components/banner/stats-modal/StatsModal';
+const App = () => {
+  const [modal, setModal] = useState(false);
 
   return (
+
+   
+
     <div className="App">
-      <Banner/>
+      <Banner setModal={setModal}/>
       <Game/>
+      {modal === 'info' && <InfoModal setModal={setModal}/>}
+      {modal === 'stats' && <StatsModal setModal={setModal}/>}
     </div>
   );
 }
