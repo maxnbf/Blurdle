@@ -19,10 +19,35 @@ export const ShareModal = styled.div`
     position: absolute;
     left: 50%;
     top: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
     background: grey;
     border-radius: 15px;
     
+`
+
+export const CopiedModal = styled.div`
+    width: 350px;
+    height: 90px;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%,-50%);
+    background-color: #211f1f;
+    border-radius: 15px;
+    border: 1px solid gray;
+    overflow: hidden;
+`
+
+export const Close = styled.img`
+    margin-left: 93%;
+    height: 20px;
+    margin-top: 10px;
+`
+
+export const Text = styled.div`
+    text-align: center;
+    font-size: 20px;
+    font-weight: bolder;
+    color: white;
+    margin-bottom: 20px;
 `

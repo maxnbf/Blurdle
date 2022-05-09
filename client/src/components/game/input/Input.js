@@ -19,7 +19,7 @@ const Input = ({options, addGuess, isOver}) => {
             <Typeahead
                 onChange={setSelection}
                 options={typeaheadOptions}
-                placeholder="Guess a player"
+                placeholder="Guess a celebrity"
                 selected={selection}
                 id="typeahead"
                 disabled={isOver}
