@@ -7,6 +7,9 @@ export const BlurredImage = styled(blur)`
     border: 9px solid grey;
     border-radius: 10px;
 
+    margin-bottom: 40px;
+    
+
     > canvas {
         padding: 5px;
         margin: -9px;

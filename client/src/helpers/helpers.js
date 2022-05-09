@@ -21,7 +21,8 @@ export const getDate = () => {
     var day = dateObj.getUTCDate();
 
 
-    return `${day < 10 && 0}${day}/${month < 10 && 0}${month}`
+    //return `${day < 10 && 0}${day}/${month < 10 && 0}${month}`
+    return '18/05'
 }
 
 export const setStats = (person, guesses, date) => {
@@ -29,23 +30,52 @@ export const setStats = (person, guesses, date) => {
     var wins = localStorage.getItem('wins');
     var previousPlay = localStorage.getItem('previousPlay');
     var currStreak = localStorage.getItem('currStreak');
-    var bestStreak = parseInt(localStorage.getItem('bestStreak'));
+    var bestStreak = localStorage.getItem('bestStreak');
     var distr = JSON.parse(localStorage.getItem('distr'));
 
     var winToday = guesses.includes(person);
 
     //to prevent double counting with double renders??
     if (previousPlay !== date) {
+        
         played = played === null ? 1 : parseInt(played) + 1
-        wins = wins === null ? winToday ? 1 : 0 : parseInt(wins) + 1
-        currStreak = currStreak === null ? winToday ? 1 : 0 : winToday && previousPlay !== null && wasYesterday(previousPlay, date) ?  parseInt(currStreak) + 1 :  parseInt(currStreak);
-        bestStreak =  bestStreak !== null && parseInt(currStreak) > parseInt(bestStreak) ?  parseInt(currStreak) : currStreak;
-
-
-        if (distr === null && winToday) {
-            distr = { [guesses.indexOf(person)+1]: 1 }
+        
+        if (wins === null) {
+            wins = winToday ? 1 : 0
         } else {
-            distr = { ...distr, [guesses.indexOf(person)+1]: distr[guesses.indexOf(person)+1] + 1}
+            wins = winToday ? parseInt(wins) + 1 : wins
+        }
+
+
+        if (currStreak === null) {
+            currStreak = winToday ? 1 : 0;
+        } else {
+            if (winToday) {
+                if (previousPlay !== null && wasYesterday(previousPlay, date)) {
+                    currStreak = parseInt(currStreak) + 1;
+                } else {
+                    currStreak = 1
+                }
+            } else {
+                currStreak = 0;
+            }
+        }
+        
+
+        if (bestStreak === null) {
+            bestStreak = currStreak;
+        } else {
+            if (currStreak > parseInt(bestStreak)) {
+                bestStreak = currStreak;
+            }  
+        }
+       
+
+        let numGuesses = guesses.indexOf(person)+1;
+        if (distr === null && winToday) {
+            distr = { [numGuesses]: 1 }
+        } else if (numGuesses !== 0) {
+            distr = { ...distr, [numGuesses]: distr[numGuesses] === undefined ? 1 : parseInt(distr[numGuesses]) + 1}
         }
 
         previousPlay = date;
@@ -58,8 +88,6 @@ export const setStats = (person, guesses, date) => {
     localStorage.setItem('currStreak', currStreak)
     localStorage.setItem('bestStreak', bestStreak)
     localStorage.setItem('distr', JSON.stringify(distr))
-
-
 
 }
 

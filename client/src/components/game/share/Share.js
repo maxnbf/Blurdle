@@ -2,21 +2,22 @@ import React, { useMemo } from 'react';
 import CopyToClipboard from "react-copy-to-clipboard";
 import { ShareButton } from './style';
 
-const Share = ({guesses, player}) => {
+const Share = ({guesses, person}) => {
 
     const text = useMemo(() => {
         
         let result = Array.from(Array(5).keys()).map((index) => {
-            if(guesses[index] !== player && index < guesses.length) {
+            console.log(guesses, index, person)
+            if(guesses[index] !== person && index < guesses.length) {
                 return "🟥";
-            } else if (guesses[index] === player) {
+            } else if (guesses[index] === person) {
                 return "🟩";
             } else {
                 return "⬜";
             }
         }).join('')
         return [result, "https://blurdle.net"].join("\n");
-      }, [guesses, player]);
+      }, [guesses, person]);
 
       return <CopyToClipboard
                     text={text}

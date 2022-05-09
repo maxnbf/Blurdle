@@ -13,14 +13,11 @@ import { Container } from './style';
 const Game = () => {
 
     
-    console.log(getDate())
-
     const { today, addGuess } = useToday(getDate());
     const { person, image, guesses } = today;
 
     const [isOver, setIsOver] = useState(false)
 
-    console.log(person, guesses)
     if (!isOver && (guesses.includes(person) || guesses.length === 5)) {
         setIsOver(true);
 
@@ -30,7 +27,7 @@ const Game = () => {
 
     return <Container>
         <Image length={isOver ? 15 : guesses.length} img={image}/>
-        <Guesses guesses={guesses} /> 
+        <Guesses guesses={guesses} person={person}/> 
         
         {isOver ? <Share guesses={guesses} person={person}/> : <Input options={options} addGuess={addGuess} isOver={isOver}/>}
 

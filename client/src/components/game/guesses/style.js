@@ -9,4 +9,5 @@ export const Guess = styled.div`
     padding-left: 12px;
     height: 38px;
     color: white;
+    background-color: ${props => props.correct ? 'green' : 'none'};
 `

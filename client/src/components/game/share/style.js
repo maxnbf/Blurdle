@@ -24,4 +24,5 @@ export const ShareModal = styled.div`
     transform: translate(-50%,-50%);
     background: grey;
     border-radius: 15px;
+    
 `

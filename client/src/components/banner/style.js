@@ -6,7 +6,8 @@ export const BannerContainer = styled.div`
     width: 100%;
     color: white;
     height: 45px;
-    border-bottom: 3px white solid;
+    margin-bottom: 5px;
+  
 `
 
 export const Trophy = styled(FaTrophy)`
@@ -26,4 +27,9 @@ export const Info = styled(FaInfoCircle)`
 export const Title = styled.h1`
     font-size: 35px;
     font-weight: bolder;
+`
+
+export const BannerBorder = styled.div`
+    border-bottom: 2px white solid;
+
 `
