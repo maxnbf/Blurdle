@@ -1,0 +1,9 @@
+.App {
+  background: black;
+  height: 100vh;
+  
+}
+
+#typeahead {
+  max-height: 145px !important;
+}
