@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Modal = styled.div`
-  width: 350px;
+  max-width: 95%;
   height: 375px;
   position: absolute;
   left: 50%;

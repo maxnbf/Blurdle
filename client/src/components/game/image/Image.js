@@ -4,7 +4,7 @@ import { BlurredImage, PersonName } from './style'
 const Image = ({ length, img, isOver, person }) => {
   return img
     ? (
-    <BlurredImage img={img} blurRadius={15 - length * 3}>
+    <BlurredImage img={img} blurRadius={20 - length * 3}>
       {isOver && <PersonName>{person}</PersonName>}
     </BlurredImage>
       )

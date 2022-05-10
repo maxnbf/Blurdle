@@ -7,8 +7,9 @@ const Share = ({ guesses, person }) => {
   const text = useMemo(() => {
     const start = new Date('5/9/2022')
     const end = new Date()
-    const dayNumber =
-      Math.ceil((end.getTime() - start.getTime()) / (1000 * 3600 * 24))
+    const dayNumber = Math.ceil(
+      (end.getTime() - start.getTime()) / (1000 * 3600 * 24)
+    )
     const dateObj = new Date()
     const month = dateObj.getMonth() + 1
     const day = dateObj.getDate()

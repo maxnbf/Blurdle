@@ -4,8 +4,9 @@ export const FooterContainer = styled.div`
   color: white;
   width: 100%;
   text-align: center;
-  position: absolute;
+  //position: absolute;
   bottom: 10px;
+  margin-top: auto;
 `
 
 export const Title = styled.span`

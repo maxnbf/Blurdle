@@ -1,7 +1,10 @@
 .App {
   background: #121213;
   height: 100vh;
-  
+  overflow-y: overlay;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 #typeahead {
