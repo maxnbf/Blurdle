@@ -20,6 +20,7 @@ const Input = ({options, addGuess, isOver}) => {
                 onChange={setSelection}
                 options={typeaheadOptions}
                 placeholder="Guess a celebrity"
+                dropup={true}
                 selected={selection}
                 id="typeahead"
                 disabled={isOver}
