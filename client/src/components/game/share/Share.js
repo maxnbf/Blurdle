@@ -12,8 +12,8 @@ const Share = ({guesses, person}) => {
         const end = new Date()
         const dayNumber = Math.ceil((start.getTime() - end.getTime()) / (1000 * 3600 * 24)) + 1
         var dateObj = new Date();
-        var month = dateObj.getUTCMonth() + 1;
-        var day = dateObj.getUTCDate();
+        var month = dateObj.getMonth() + 1;
+        var day = dateObj.getDate();
     
     
         let currStreak = parseInt(localStorage.getItem('currStreak'));

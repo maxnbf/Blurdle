@@ -9,6 +9,7 @@ import Footer from './components/footer/Footer';
 const App = () => {
   const [modal, setModal] = useState(false);
 
+ 
   return (
 
    
