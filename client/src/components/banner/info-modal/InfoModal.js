@@ -12,9 +12,16 @@ import {
 import xButton from '../../../x.svg'
 
 const InfoModal = ({ setModal }) => {
+  const closeModal = () => {
+    if (localStorage.getItem('new_user') === null) {
+      localStorage.setItem('new_user', 'false')
+    }
+    setModal(false)
+  }
+
   return (
     <Modal>
-      <Close src={xButton} onClick={() => setModal(false)} />
+      <Close src={xButton} onClick={() => { closeModal() }} />
       <Header>How to Play</Header>
       <Description>
         Try to guess the celebrity using a blurry image of them. Each guess you

@@ -37,7 +37,23 @@ const Share = ({ guesses, person }) => {
 
   const [copied, setCopied] = useState(false)
   const shareClicked = () => {
-    setCopied(true)
+    if (
+      navigator.userAgent.match(/Android/i) ||
+        navigator.userAgent.match(/iPhone/i)
+    ) {
+      if (navigator.share) {
+        navigator.share({
+          title: 'Blurdle - The celebrity guessing game',
+          text,
+          url: 'https://blurdle.me/'
+        })
+      }
+
+      // .then(() => console.log('Successful share'))
+      // .catch((error) => console.log('Error sharing', error))
+    } else {
+      setCopied(true)
+    }
   }
 
   return (

@@ -11,10 +11,6 @@ const App = () => {
     localStorage.getItem('new_user') === null ? 'info' : false
   )
 
-  if (localStorage.getItem('new_user') === null) {
-    localStorage.setItem('new_user', 'false')
-  }
-
   if (localStorage.getItem('hard_mode') == null) {
     localStorage.setItem('hard_mode', false)
   }
