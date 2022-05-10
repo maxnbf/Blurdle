@@ -17,11 +17,17 @@ export const saveGuesses = (dayString, guesses) => {
 
 export const getDate = () => {
     var dateObj = new Date();
-    var month = dateObj.getUTCMonth() + 1;
-    var day = dateObj.getUTCDate();
+    var month = dateObj.getMonth() + 1;
+    var day = dateObj.getDate();
 
-
-    return `${day < 10 && 0}${day}/${month < 10 && 0}${month}`
+    if (day < 10 && month < 10)
+        return `0${day}/0${month}`
+    else if (day < 10)
+        return `0${day}/${month}`
+    else if (month < 10)
+        return `${day}/0${month}`
+    else 
+        return `${day}/${month}`
 }
 
 export const setStats = (person, guesses, date) => {

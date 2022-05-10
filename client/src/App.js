@@ -11,7 +11,6 @@ const App = () => {
 
   return (
 
-   
 
     <div className="App">
       <Banner setModal={setModal}/>

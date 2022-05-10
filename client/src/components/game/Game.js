@@ -12,7 +12,6 @@ import { Container } from './style';
 
 const Game = () => {
 
-    
     const { today, addGuess } = useToday(getDate());
     const { person, image, guesses } = today;
 
