@@ -1,13 +1,16 @@
 import React from 'react'
 
-import { BannerBorder, BannerContainer, Info, Title, Trophy } from './style'
+import { BannerBorder, BannerContainer, Info, RightIcons, Settings, Title, Trophy } from './style'
 const Banner = ({ setModal }) => {
   return (
     <BannerBorder>
       <BannerContainer>
         <Info onClick={() => setModal('info')} />
         <Title>Blurdle</Title>
-        <Trophy onClick={() => setModal('stats')} />
+        <RightIcons>
+            <Trophy onClick={() => setModal('stats')} />
+            <Settings onClick={() => setModal('settings')} />
+        </RightIcons>
       </BannerContainer>
     </BannerBorder>
   )
