@@ -17,4 +17,10 @@ export const GuessButton = styled.div`
 
 export const TypeaheadInput = styled(Typeahead)`
   margin-top: 30px;
+
+
+  > #typeahead {
+        max-height: 145px !important;
+        overflow: ${(props) => (props.hardMode ? 'hidden' : 'auto')} !important;
+  }
 `

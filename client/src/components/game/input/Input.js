@@ -13,6 +13,7 @@ const Input = ({ options, addGuess, isOver }) => {
 
   let typeaheadOptions = options.map((option) => option.name)
   typeaheadOptions = typeaheadOptions.sort((a, b) => (a > b ? 1 : -1))
+
   return (
     <>
       <TypeaheadInput
@@ -21,8 +22,10 @@ const Input = ({ options, addGuess, isOver }) => {
         placeholder="Guess a celebrity"
         dropup={true}
         selected={selection}
-        id="typeahead"
+        minLength={1}
         disabled={isOver}
+        id='typeahead'
+        hardMode={localStorage.getItem('hard_mode') === 'true'}
       />
       <GuessButton
         disabled={selection.length === 0}

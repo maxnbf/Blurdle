@@ -14,6 +14,7 @@ export const BlurredImage = styled(blur)`
     padding: 5px;
     margin: -9px;
     border-radius: 10px;
+    transform: rotate(${(props) => props.rotate}deg);
   }
 `
 

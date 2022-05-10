@@ -10,12 +10,12 @@ const Share = ({ guesses, person }) => {
     const dayNumber = Math.ceil(
       (end.getTime() - start.getTime()) / (1000 * 3600 * 24)
     )
-    const dateObj = new Date()
-    const month = dateObj.getMonth() + 1
-    const day = dateObj.getDate()
 
     const currStreak = parseInt(localStorage.getItem('currStreak'))
+    const numGuesses = guesses.indexOf(person) + 1
 
+    const hardMode = localStorage.getItem('hard_mode') === 'true' ? '*' : ''
+    const superHardMode = localStorage.getItem('super_hard_mode') === 'true' ? '*' : ''
     const result = Array.from(Array(5).keys())
       .map((index) => {
         if (guesses[index] !== person && index < guesses.length) {
@@ -28,7 +28,7 @@ const Share = ({ guesses, person }) => {
       })
       .join('')
     return [
-      `Blurdle #${dayNumber} ${month + '/' + day}\n`,
+      `Blurdle #${dayNumber} ${numGuesses}/5${hardMode}${superHardMode}\n`,
       result,
       '\nhttps://blurdle.me',
       `Current streak: ${currStreak}`
