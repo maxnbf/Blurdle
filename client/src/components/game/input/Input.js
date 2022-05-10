@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Typeahead } from 'react-bootstrap-typeahead';
-import { GuessButton } from './styled';
+import { GuessButton, TypeaheadInput } from './style';
 
 const Input = ({options, addGuess, isOver}) => {
 
@@ -14,9 +13,10 @@ const Input = ({options, addGuess, isOver}) => {
         }
     }
 
-    const typeaheadOptions = options.map(option => option.name)
+    var typeaheadOptions = options.map(option => option.name)
+    typeaheadOptions = typeaheadOptions.sort((a, b) => (a > b) ? 1 : -1)
     return <>
-            <Typeahead
+            <TypeaheadInput
                 onChange={setSelection}
                 options={typeaheadOptions}
                 placeholder="Guess a celebrity"
@@ -24,7 +24,7 @@ const Input = ({options, addGuess, isOver}) => {
                 id="typeahead"
                 disabled={isOver}
             />
-            <GuessButton onClick={() => handleGuess()}>Guess</GuessButton>
+            <GuessButton disabled={selection.length === 0} onClick={() => handleGuess()}>Guess</GuessButton>
         </>
 }
 

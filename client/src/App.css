@@ -6,10 +6,11 @@
 
 #typeahead {
   max-height: 145px !important;
+  transform: translate3d(0px, 38px, 0px) !important;
 }
 
-@media screen and (min-width: 767px) {
+/* @media screen and (min-width: 767px) {
   #typeahead {
     transform: translate3d(0px, -148px, 0px) !important;
   }
-}
+} */

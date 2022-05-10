@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Typeahead } from 'react-bootstrap-typeahead';
 
 export const GuessButton = styled.div`
     height: 38px;
@@ -9,4 +10,12 @@ export const GuessButton = styled.div`
     font-size: 18px;
     text-align: center;
     color: white;
+
+    opacity: ${props => props.disabled ? .5 : 1};
+    background-color: ${props => props.disabled ? 'gray' : 'green'};
+`
+
+
+export const TypeaheadInput = styled(Typeahead)`
+    margin-top: 30px;
 `

@@ -11,6 +11,7 @@ export const ShareButton = styled.div`
     border: 1px solid white;
     border-radius: 5px;
     background-color: grey;
+    margin-top: 30px;
 `
 
 export const ShareModal = styled.div`

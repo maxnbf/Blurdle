@@ -9,7 +9,10 @@ export const Guess = styled.div`
     padding-left: 12px;
     height: 38px;
     color: white;
-    background-color: ${props => props.correct ? 'green' : 'none'};
+    background-color: ${props => props.correct ? 'green' : props.empty ? 'none' : 'darkgray'};
+
+    opacity: ${props => props.empty ? 1 : .5};
+    text-decoration: ${props => props.correct ? "none" : "line-through"};
 `
 
 
