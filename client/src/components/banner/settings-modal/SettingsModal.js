@@ -7,6 +7,27 @@ const SettingsModal = ({ setModal }) => {
   const [hardMode, setHardMode] = useState(localStorage.getItem('hard_mode') === 'true')
   const [superHardMode, setSuperHardMode] = useState(localStorage.getItem('super_hard_mode') === 'true')
 
+  const clickedHardMode = () => {
+    if (hardMode) {
+      localStorage.setItem('super_hard_mode', false)
+      setSuperHardMode(false)
+    }
+
+    localStorage.setItem('hard_mode', !hardMode)
+    setHardMode(!hardMode)
+  }
+
+  const clickedSuperHardMode = () => {
+    // if turning super hard mode on
+    if (!superHardMode) {
+      localStorage.setItem('hard_mode', true)
+      setHardMode(true)
+    }
+
+    localStorage.setItem('super_hard_mode', !superHardMode)
+    setSuperHardMode(!superHardMode)
+  }
+
   return <Modal>
             <Close src={xButton} onClick={() => setModal(false)} />
             <Header>Settings</Header>
@@ -22,7 +43,7 @@ const SettingsModal = ({ setModal }) => {
                     Hard Mode:
                     <Toggle
                         checked={hardMode}
-                        onChange={() => { localStorage.setItem('hard_mode', !hardMode); setHardMode(!hardMode) }}
+                        onChange={() => { clickedHardMode() }}
                     />
                 </Row>
                 <Description>
@@ -34,7 +55,7 @@ const SettingsModal = ({ setModal }) => {
                     Super Hard Mode:
                     <Toggle
                         checked={superHardMode}
-                        onChange={() => { localStorage.setItem('super_hard_mode', !superHardMode); setSuperHardMode(!superHardMode) }}
+                        onChange={() => { clickedSuperHardMode() }}
                     />
                 </Row>
                 <Description>
