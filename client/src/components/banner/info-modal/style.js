@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import blur from 'react-blur'
 
 export const Modal = styled.div`
-  width: 350px;
+  max-width: 95%;
   min-height: 375px;
   position: absolute;
   left: 50%;

@@ -25,7 +25,7 @@ const Game = () => {
       <Image
         isOver={isOver}
         person={person}
-        length={isOver ? 15 : guesses.length}
+        length={isOver ? 20 : guesses.length}
         img={image}
       />
       <Guesses guesses={guesses} person={person} />
