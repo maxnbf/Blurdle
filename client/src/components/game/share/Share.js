@@ -30,8 +30,7 @@ const Share = ({ guesses, person }) => {
     return [
       `Blurdle #${dayNumber} ${numGuesses}/5${hardMode}${superHardMode}\n`,
       result,
-      '\nhttps://blurdle.me',
-      `Current streak: ${currStreak}`
+      `\nCurrent streak: ${currStreak}\n`
     ].join('\n')
   }, [guesses, person])
 
