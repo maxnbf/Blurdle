@@ -10,7 +10,7 @@ const Image = ({ length, img, isOver, person }) => {
   const rotate = superHardMode ? Math.floor(rng() * 3 + 1) * 90 : 0
   return img
     ? (
-    <BlurredImage img={img} blurRadius={50 - length * 10} rotate={rotate}>
+    <BlurredImage img={img} blurRadius={24 - length * 6} rotate={rotate}>
       {isOver && <PersonName>{person}</PersonName>}
     </BlurredImage>
       )
