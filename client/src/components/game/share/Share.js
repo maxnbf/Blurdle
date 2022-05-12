@@ -14,6 +14,14 @@ const Share = ({ guesses, person }) => {
     const currStreak = parseInt(localStorage.getItem('currStreak'))
     const numGuesses = guesses.indexOf(person) + 1
 
+    let includeLink = ''
+
+    if (
+      !(navigator.userAgent.match(/Android/i) ||
+        navigator.userAgent.match(/iPhone/i))
+    ) {
+      includeLink = 'https://blurdle.me/'
+    }
     const hardMode = localStorage.getItem('hard_mode') === 'true' ? '*' : ''
     const superHardMode = localStorage.getItem('super_hard_mode') === 'true' ? '*' : ''
     const result = Array.from(Array(5).keys())
@@ -30,7 +38,7 @@ const Share = ({ guesses, person }) => {
     return [
       `Blurdle #${dayNumber} ${numGuesses}/5${hardMode}${superHardMode}\n`,
       result,
-      `\nCurrent streak: ${currStreak}\n`
+      `\nCurrent streak: ${currStreak}\n${includeLink}`
     ].join('\n')
   }, [guesses, person])
 
