@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { names } from '../../../helpers/options'
 import { GuessButton, TypeaheadInput } from './style'
 
 const Input = ({ options, addGuess, isOver }) => {
@@ -11,8 +12,7 @@ const Input = ({ options, addGuess, isOver }) => {
     }
   }
 
-  let typeaheadOptions = options.map((option) => option.name)
-  typeaheadOptions = typeaheadOptions.sort((a, b) => (a > b ? 1 : -1))
+  const typeaheadOptions = names.sort((a, b) => (a > b ? 1 : -1))
 
   return (
     <>
