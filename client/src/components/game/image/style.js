@@ -1,21 +1,13 @@
-import blur from 'react-blur'
 import styled from 'styled-components'
 
-export const BlurredImage = styled(blur)`
-  width: 280px;
-  height: 280px;
-  border: 9px solid grey;
-  border-radius: 10px;
+export const BlurredImage = styled.img`
 
-  margin-bottom: 40px;
+  filter: blur(${(props) => props.blur}px);
+  width: 262px;
+  height: 262px;
   position: relative;
-
-  > canvas {
-    padding: 5px;
-    margin: -9px;
-    border-radius: 10px;
-    transform: rotate(${(props) => props.rotate}deg);
-  }
+  transform: rotate(${(props) => props.rotate}deg);
+  
 `
 
 export const PersonName = styled.div`
@@ -27,5 +19,16 @@ export const PersonName = styled.div`
   font-weight: bolder;
   color: white;
   background: gray;
-  border-radius: 15px;
+
+`
+
+export const ImageContainer = styled.div`
+
+  margin-bottom: 40px;
+  position: relative;
+  height: 280px;
+  width: 280px;
+  border: 10px solid grey;
+  overflow: hidden;
+  border-radius:10px
 `
