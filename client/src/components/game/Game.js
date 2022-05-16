@@ -8,7 +8,7 @@ import Input from './input/Input'
 import Share from './share/Share'
 import { Container } from './style'
 
-const Game = () => {
+const Game = ({ darkMode }) => {
   const { today, addGuess } = useToday(getDate())
   const { person, image, guesses } = today
 
@@ -27,8 +27,9 @@ const Game = () => {
         person={person}
         length={isOver ? 20 : guesses.length}
         img={image}
+        darkMode={darkMode}
       />
-      <Guesses guesses={guesses} person={person} />
+      <Guesses guesses={guesses} person={person} darkMode={darkMode} />
       {isOver
         ? (
         <Share guesses={guesses} person={person} />

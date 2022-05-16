@@ -1,10 +1,10 @@
 import React from 'react'
 
 import { BannerBorder, BannerContainer, Info, RightIcons, Settings, Title, Trophy } from './style'
-const Banner = ({ setModal }) => {
+const Banner = ({ setModal, darkMode }) => {
   return (
-    <BannerBorder>
-      <BannerContainer>
+    <BannerBorder darkMode={darkMode}>
+      <BannerContainer darkMode={darkMode}>
         <Info onClick={() => setModal('info')} />
         <Title>Blurdle</Title>
         <RightIcons>

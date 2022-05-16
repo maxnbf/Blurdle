@@ -9,9 +9,10 @@ import {
   Modal,
   Text
 } from './style'
-import xButton from '../../../x.svg'
+import xButtonWhite from '../../../x.svg'
+import xButtonBlack from '../../../x2.svg'
 
-const InfoModal = ({ setModal }) => {
+const InfoModal = ({ setModal, darkMode }) => {
   const closeModal = () => {
     if (localStorage.getItem('new_user') === null) {
       localStorage.setItem('new_user', 'false')
@@ -20,8 +21,8 @@ const InfoModal = ({ setModal }) => {
   }
 
   return (
-    <Modal>
-      <Close src={xButton} onClick={() => { closeModal() }} />
+    <Modal darkMode={darkMode}>
+      <Close src={darkMode ? xButtonWhite : xButtonBlack} onClick={() => { closeModal() }} />
       <Header>How to Play</Header>
       <Description>
         Try to guess the celebrity using a blurry image of them. Each guess you

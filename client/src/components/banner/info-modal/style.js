@@ -8,12 +8,12 @@ export const Modal = styled.div`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: #211f1f;
+  background-color: ${props => props.darkMode ? '#211f1f' : 'white'};
   border-radius: 15px;
   padding: 15px;
   z-index: 5;
   border: 1px solid gray;
-  color: white;
+  color: ${props => props.darkMode ? 'white' : 'black'};
   overflow: hidden;
 `
 

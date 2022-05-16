@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Guess = styled.div`
-  border: 1px solid white;
+  border: 1px solid ${props => props.darkMode ? 'white' : 'black'};
   padding: 3px;
   margin: 2px 0px 2px 0px;
   border-radius: 5px;
@@ -10,7 +10,7 @@ export const Guess = styled.div`
   height: 38px;
   color: white;
   background-color: ${(props) =>
-    props.correct ? 'green' : props.empty ? 'none' : 'darkgray'};
+    props.correct ? 'green' : props.empty ? 'none' : props.darkMode ? 'darkgray' : 'gray'};
 
   opacity: ${(props) => (props.empty ? 1 : 0.5)};
   text-decoration: ${(props) => (props.correct ? 'none' : 'line-through')};
