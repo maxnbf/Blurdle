@@ -9,7 +9,7 @@ export const ShareButton = styled.div`
 
   height: 38px;
   border: 1px solid white;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: grey;
   margin-top: 30px;
 `

@@ -3,10 +3,10 @@ import { Typeahead } from 'react-bootstrap-typeahead'
 
 export const GuessButton = styled.div`
   height: 38px;
-  border: 1px solid white;
+  border: 2px solid white;
   padding: 3px;
   margin: 2px 0px 2px 0px;
-  border-radius: 5px;
+  border-radius: 2px;
   font-size: 18px;
   text-align: center;
   color: white;

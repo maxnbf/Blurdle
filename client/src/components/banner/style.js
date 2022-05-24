@@ -7,7 +7,7 @@ export const BannerContainer = styled.div`
   width: 100%;
   color: ${props => props.darkMode ? 'white' : 'black'};
   height: 45px;
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 `
 
 export const Trophy = styled(FaTrophy)`

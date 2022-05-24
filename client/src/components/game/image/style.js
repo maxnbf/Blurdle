@@ -31,5 +31,5 @@ export const ImageContainer = styled.div`
   width: 280px;
   border: 10px solid ${props => props.darkMode ? 'gray' : 'black'};
   overflow: hidden;
-  border-radius:10px
+  border-radius: 3px;
 `
