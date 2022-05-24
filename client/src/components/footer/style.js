@@ -11,6 +11,7 @@ export const FooterContainer = styled.div`
 
 export const Title = styled.span`
   font-weight: bolder;
+  color: ${p => p.darkMode ? 'white' : 'black'};
 `
 
 export const Link = styled.a`

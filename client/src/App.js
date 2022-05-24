@@ -33,7 +33,7 @@ const App = () => {
       {modal === 'stats' && <StatsModal setModal={setModal} darkMode={darkMode} />}
       {modal === 'settings' && <SettingsModal setModal={setModal} darkMode={darkMode} setDarkMode={setDarkMode}/>}
 
-      <Footer />
+      <Footer darkMode={darkMode} />
     </AppContainer>
   )
 }
