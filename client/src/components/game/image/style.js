@@ -7,6 +7,7 @@ export const BlurredImage = styled.img`
   height: 262px;
   position: relative;
   transform: rotate(${(props) => props.rotate}deg);
+  pointer-events: none;
   
 `
 
