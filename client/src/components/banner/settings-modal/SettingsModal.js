@@ -8,7 +8,7 @@ const SettingsModal = ({ setModal, darkMode, setDarkMode }) => {
   const [hardMode, setHardMode] = useState(localStorage.getItem('hard_mode') === 'true')
   const [superHardMode, setSuperHardMode] = useState(localStorage.getItem('super_hard_mode') === 'true')
 
-  const clickedHardMode = ({ darkMode }) => {
+  const clickedHardMode = () => {
     if (hardMode) {
       localStorage.setItem('super_hard_mode', false)
       setSuperHardMode(false)
