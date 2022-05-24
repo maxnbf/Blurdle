@@ -11,9 +11,19 @@ const Image = ({ length, img, isOver, person, darkMode }) => {
 
   img = img !== null ? img.substring(0, img.length - 6) : null
 
+  const blurmap = {
+    0: 12,
+    1: 9,
+    2: 6,
+    3: 4,
+    4: 2,
+    5: 0
+  }
+
   return <ImageContainer darkMode={darkMode}>
-          <BlurredImage src={img} blur={18 - length * 4} rotate={rotate}></BlurredImage>
+          <BlurredImage src={img} blur={blurmap[length]} rotate={rotate}></BlurredImage>
           {isOver && <PersonName darkMode={darkMode}>{person}</PersonName>}
+
         </ImageContainer>
 }
 
