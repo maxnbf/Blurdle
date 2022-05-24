@@ -5,6 +5,7 @@ export const Modal = styled.div`
   min-width: 90%;
   max-width: 95%;
   min-height: 375px;
+  max-height: 475px;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -15,7 +16,8 @@ export const Modal = styled.div`
   z-index: 5;
   border: 1px solid gray;
   color: ${props => props.darkMode ? 'white' : 'black'};
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: overlay;
 `
 
 export const Header = styled.h4`
@@ -51,4 +53,9 @@ export const ImageContainer = styled.div`
 
 export const Text = styled.div`
   font-size: 12px;
+`
+
+export const Info = styled.div`
+  margin-top: 30px;
+  text-align: center;
 `

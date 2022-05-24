@@ -6,6 +6,7 @@ import {
   Header,
   ImageContainer,
   ImagesContainer,
+  Info,
   Modal,
   Text
 } from './style'
@@ -36,6 +37,14 @@ const InfoModal = ({ setModal, darkMode }) => {
         <Node text={'Before fourth guess'} blur={3} />
         <Node text={'Before last guess'} blur={0} />
       </ImagesContainer>
+
+      <Info>
+        All pictures and names are sourced from <a href={'https://today.yougov.com/ratings/entertainment/fame/people/all'}>yougov.com</a>, which list the most famous people, defined as the percent of people who have heard of a person. This list is for Q1 of 2022. Your options when playing blurdle.me consists of the top 1300 most famous people.
+      </Info>
+
+      <Info>
+          View the settings to switch from dark mode to light mode. There is also two difficulty settings: 1. Hard Mode - when switched on you cannot scroll through the list of possible options. 2. Extreme Mode: the picture is randomly rotated 90, 180, or 270 degrees.
+      </Info>
     </Modal>
   )
 }

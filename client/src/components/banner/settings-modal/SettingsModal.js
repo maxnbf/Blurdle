@@ -58,7 +58,7 @@ const SettingsModal = ({ setModal, darkMode, setDarkMode }) => {
             </div>
             <div>
                 <Row>
-                    Super Hard Mode:
+                    Extreme Mode:
                     <Toggle
                         checked={superHardMode}
                         onChange={() => { clickedSuperHardMode() }}
