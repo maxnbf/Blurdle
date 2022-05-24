@@ -7,6 +7,7 @@ export const BlurredImage = styled.img`
   height: 262px;
   position: relative;
   transform: rotate(${(props) => props.rotate}deg);
+  pointer-events: none;
   
 `
 
@@ -18,7 +19,7 @@ export const PersonName = styled.div`
   font-size: 18px;
   font-weight: bolder;
   color: white;
-  background: gray;
+  background: ${props => props.darkMode ? 'gray' : 'black'};
 
 `
 
@@ -28,7 +29,7 @@ export const ImageContainer = styled.div`
   position: relative;
   height: 280px;
   width: 280px;
-  border: 10px solid grey;
+  border: 10px solid ${props => props.darkMode ? 'gray' : 'black'};
   overflow: hidden;
   border-radius:10px
 `

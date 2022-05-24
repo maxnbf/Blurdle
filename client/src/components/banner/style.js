@@ -5,7 +5,7 @@ export const BannerContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   width: 100%;
-  color: white;
+  color: ${props => props.darkMode ? 'white' : 'black'};
   height: 45px;
   margin-bottom: 5px;
 `
@@ -40,7 +40,7 @@ export const Title = styled.h1`
 `
 
 export const BannerBorder = styled.div`
-  border-bottom: 2px white solid;
+  border-bottom: 2px ${props => props.darkMode ? 'white' : 'black'} solid;
 `
 
 export const RightIcons = styled.div`

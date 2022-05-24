@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { Close, Description, Header, Modal, Row } from './style'
-import xButton from '../../../x.svg'
 import Toggle from 'react-toggle'
+import xButtonWhite from '../../../x.svg'
+import xButtonBlack from '../../../x2.svg'
 
-const SettingsModal = ({ setModal }) => {
+const SettingsModal = ({ setModal, darkMode, setDarkMode }) => {
   const [hardMode, setHardMode] = useState(localStorage.getItem('hard_mode') === 'true')
   const [superHardMode, setSuperHardMode] = useState(localStorage.getItem('super_hard_mode') === 'true')
 
@@ -17,6 +18,11 @@ const SettingsModal = ({ setModal }) => {
     setHardMode(!hardMode)
   }
 
+  const clickDarkMode = () => {
+    localStorage.setItem('dark_mode', !darkMode)
+    setDarkMode(!darkMode)
+  }
+
   const clickedSuperHardMode = () => {
     // if turning super hard mode on
     if (!superHardMode) {
@@ -28,14 +34,14 @@ const SettingsModal = ({ setModal }) => {
     setSuperHardMode(!superHardMode)
   }
 
-  return <Modal>
-            <Close src={xButton} onClick={() => setModal(false)} />
+  return <Modal darkMode={darkMode}>
+            <Close src={darkMode ? xButtonWhite : xButtonBlack} onClick={() => setModal(false)} />
             <Header>Settings</Header>
             <Row>
                 Dark Mode:
                 <Toggle
-                    checked={true}
-                    onChange={() => {}}
+                    checked={darkMode}
+                    onChange={() => { clickDarkMode() }}
                 />
             </Row>
             <div>

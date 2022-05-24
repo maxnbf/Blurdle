@@ -1,5 +1,7 @@
 import React from 'react'
-import xButton from '../../../x.svg'
+import xButtonWhite from '../../../x.svg'
+import xButtonBlack from '../../../x2.svg'
+
 import {
   Bar,
   BarContainer,
@@ -14,7 +16,7 @@ import {
   Value
 } from './style'
 
-const StatsModal = ({ setModal }) => {
+const StatsModal = ({ setModal, darkMode }) => {
   const distr = JSON.parse(localStorage.getItem('distr'))
   const played =
     localStorage.getItem('played') !== null
@@ -30,8 +32,8 @@ const StatsModal = ({ setModal }) => {
   }
 
   return (
-    <Modal>
-      <Close src={xButton} onClick={() => setModal(false)} />
+    <Modal darkMode={darkMode}>
+      <Close src={darkMode ? xButtonWhite : xButtonBlack} onClick={() => setModal(false)} />
       <Header>Statistics</Header>
       <Statistics>
         <StatisticContainer>

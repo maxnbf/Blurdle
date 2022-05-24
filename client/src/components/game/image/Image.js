@@ -2,7 +2,7 @@ import React from 'react'
 import seedrandom from 'seedrandom'
 import { BlurredImage, ImageContainer, PersonName } from './style'
 
-const Image = ({ length, img, isOver, person }) => {
+const Image = ({ length, img, isOver, person, darkMode }) => {
   const superHardMode = localStorage.getItem('super_hard_mode') === 'true'
 
   const rng = seedrandom(person)
@@ -20,9 +20,10 @@ const Image = ({ length, img, isOver, person }) => {
     5: 0
   }
 
-  return <ImageContainer>
+  return <ImageContainer darkMode={darkMode}>
           <BlurredImage src={img} blur={blurmap[length]} rotate={rotate}></BlurredImage>
-          {isOver && <PersonName>{person}</PersonName>}
+          {isOver && <PersonName darkMode={darkMode}>{person}</PersonName>}
+
         </ImageContainer>
 }
 

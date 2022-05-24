@@ -11,8 +11,8 @@ export const GuessButton = styled.div`
   text-align: center;
   color: white;
 
-  opacity: ${(props) => (props.disabled ? 0.5 : 1)};
-  background-color: ${(props) => (props.disabled ? 'gray' : 'green')};
+  opacity: ${(props) => (props.disabled && props.darkMode ? 0.5 : 1)};
+  background-color: ${(props) => (props.disabled ? props.darkMode ? 'gray' : 'black' : 'green')};
 `
 
 export const TypeaheadInput = styled(Typeahead)`

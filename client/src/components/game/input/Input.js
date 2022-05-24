@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { names } from '../../../helpers/options'
 import { GuessButton, TypeaheadInput } from './style'
 
-const Input = ({ options, addGuess, isOver }) => {
+const Input = ({ options, addGuess, isOver, darkMode }) => {
   const [selection, setSelection] = useState([])
 
   const handleGuess = () => {
@@ -26,10 +26,12 @@ const Input = ({ options, addGuess, isOver }) => {
         disabled={isOver}
         id='typeahead'
         hardMode={localStorage.getItem('hard_mode') === 'true'}
+
       />
       <GuessButton
         disabled={selection.length === 0}
         onClick={() => handleGuess()}
+        darkMode={darkMode}
       >
         Guess
       </GuessButton>
