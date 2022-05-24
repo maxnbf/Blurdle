@@ -6,7 +6,7 @@ const Banner = ({ setModal, darkMode }) => {
     <BannerBorder darkMode={darkMode}>
       <BannerContainer darkMode={darkMode}>
         <Info onClick={() => setModal('info')} />
-        <Title>Blurdle</Title>
+        <Title>BLURDLE</Title>
         <RightIcons>
             <Trophy onClick={() => setModal('stats')} />
             <Settings onClick={() => setModal('settings')} />

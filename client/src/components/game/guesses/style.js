@@ -3,8 +3,8 @@ import styled from 'styled-components'
 export const Guess = styled.div`
   border: 1px solid ${props => props.darkMode ? 'white' : 'black'};
   padding: 3px;
-  margin: 2px 0px 2px 0px;
-  border-radius: 5px;
+  margin: 3px 0px 3px 0px;
+  border-radius: 3px;
   font-size: 18px;
   padding-left: 12px;
   height: 38px;
