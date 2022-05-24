@@ -13,6 +13,8 @@ const App = () => {
     localStorage.getItem('new_user') === null ? 'info' : false
   )
 
+  const [darkMode, setDarkMode] = useState(localStorage.getItem('dark_mode') === 'true')
+
   if (localStorage.getItem('hard_mode') == null) {
     localStorage.setItem('hard_mode', false)
   }
@@ -20,8 +22,6 @@ const App = () => {
   if (localStorage.getItem('super_hard_mode') == null) {
     localStorage.setItem('super_hard_mode', false)
   }
-
-  const darkMode = localStorage.getItem('dark_mode') === 'true'
 
   return (
     <AppContainer darkMode={darkMode}>
@@ -31,7 +31,7 @@ const App = () => {
       </div>
       {modal === 'info' && <InfoModal setModal={setModal} darkMode={darkMode} />}
       {modal === 'stats' && <StatsModal setModal={setModal} darkMode={darkMode} />}
-      {modal === 'settings' && <SettingsModal setModal={setModal} darkMode={darkMode}/>}
+      {modal === 'settings' && <SettingsModal setModal={setModal} darkMode={darkMode} setDarkMode={setDarkMode}/>}
 
       <Footer />
     </AppContainer>

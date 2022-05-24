@@ -4,10 +4,9 @@ import Toggle from 'react-toggle'
 import xButtonWhite from '../../../x.svg'
 import xButtonBlack from '../../../x2.svg'
 
-const SettingsModal = ({ setModal }) => {
+const SettingsModal = ({ setModal, darkMode, setDarkMode }) => {
   const [hardMode, setHardMode] = useState(localStorage.getItem('hard_mode') === 'true')
   const [superHardMode, setSuperHardMode] = useState(localStorage.getItem('super_hard_mode') === 'true')
-  const [darkMode, setDarkMode] = useState(localStorage.getItem('dark_mode') === 'true')
 
   const clickedHardMode = ({ darkMode }) => {
     if (hardMode) {
