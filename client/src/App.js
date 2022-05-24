@@ -13,7 +13,7 @@ const App = () => {
     localStorage.getItem('new_user') === null ? 'info' : false
   )
 
-  const [darkMode, setDarkMode] = useState(localStorage.getItem('dark_mode') === null)
+  const [darkMode, setDarkMode] = useState(localStorage.getItem('dark_mode') === null || localStorage.getItem('dark_mode') === 'true')
 
   if (localStorage.getItem('hard_mode') == null) {
     localStorage.setItem('hard_mode', false)
