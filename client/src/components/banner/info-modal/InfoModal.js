@@ -3,11 +3,12 @@ import {
   BlurredImage,
   Close,
   Description,
+  ExampleImageContainer,
   Header,
-  ImageContainer,
   ImagesContainer,
   Info,
   Modal,
+  NodeContainer,
   Text
 } from './style'
 import xButtonWhite from '../../../x.svg'
@@ -31,11 +32,11 @@ const InfoModal = ({ setModal, darkMode }) => {
       </Description>
 
       <ImagesContainer>
-        <Node text={'Before first guess'} blur={12} />
-        <Node text={'Before second guess'} blur={9} />
-        <Node text={'Before third guess'} blur={6} />
-        <Node text={'Before fourth guess'} blur={3} />
-        <Node text={'Before last guess'} blur={0} />
+        <Node text={'Before first guess'} blur={6} darkMode={darkMode} />
+        <Node text={'Before second guess'} blur={4} darkMode={darkMode}/>
+        <Node text={'Before third guess'} blur={2.5} darkMode={darkMode}/>
+        <Node text={'Before fourth guess'} blur={1.5} darkMode={darkMode}/>
+        <Node text={'Before last guess'} blur={0} darkMode={darkMode} />
       </ImagesContainer>
 
       <Info>
@@ -49,17 +50,19 @@ const InfoModal = ({ setModal, darkMode }) => {
   )
 }
 
-const Node = ({ text, blur }) => {
+const Node = ({ text, blur, darkMode }) => {
   return (
-    <ImageContainer>
-      <BlurredImage
-        img={
-          'https://ntvb.tmsimg.com/assets/assets/235135_v9_bb.jpg?w=270&h=360'
-        }
-        blurRadius={blur}
-      ></BlurredImage>
+    <NodeContainer>
+      <ExampleImageContainer darkMode={darkMode}>
+        <BlurredImage
+          src={
+            'https://ntvb.tmsimg.com/assets/assets/235135_v9_bb.jpg?w=270&h=360'
+          }
+          blur={blur}
+        ></BlurredImage>
+      </ExampleImageContainer>
       <Text>{text}</Text>
-    </ImageContainer>
+     </NodeContainer>
   )
 }
 

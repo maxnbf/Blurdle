@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import blur from 'react-blur'
 
 export const Modal = styled.div`
   min-width: 90%;
@@ -29,13 +28,6 @@ export const Close = styled.img`
   height: 20px;
 `
 
-export const BlurredImage = styled(blur)`
-  width: 75px;
-  height: 75px;
-  margin-left: auto;
-  margin-right: auto;
-`
-
 export const ImagesContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -58,4 +50,30 @@ export const Text = styled.div`
 export const Info = styled.div`
   margin-top: 30px;
   text-align: center;
+`
+
+export const BlurredImage = styled.img`
+
+  filter: blur(${(props) => props.blur}px);
+  width: 75px;
+  height: 75px;
+  position: relative;
+  transform: rotate(${(props) => props.rotate}deg);
+  pointer-events: none;
+  
+`
+
+export const ExampleImageContainer = styled.div`
+  position: relative;
+  height: 80px;
+  width: 80px;
+  border: 3px solid ${props => props.darkMode ? '#211f1f' : 'white'};
+  overflow: hidden;
+  border-radius: 3px;
+  margin-left: auto;
+  margin-right: auto;
+`
+
+export const NodeContainer = styled.div`
+  padding: 3px;
 `
