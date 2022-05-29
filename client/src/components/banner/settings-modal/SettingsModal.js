@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Close, Description, Header, Modal, Row } from './style'
+import { Close, Description, Header, Modal, PasswordContainer, PasswordInput, PasswordSubmit, Row } from './style'
 import Toggle from 'react-toggle'
 import xButtonWhite from '../../../x.svg'
 import xButtonBlack from '../../../x2.svg'
@@ -7,6 +7,10 @@ import xButtonBlack from '../../../x2.svg'
 const SettingsModal = ({ setModal, darkMode, setDarkMode }) => {
   const [hardMode, setHardMode] = useState(localStorage.getItem('hard_mode') === 'true')
   const [superHardMode, setSuperHardMode] = useState(localStorage.getItem('super_hard_mode') === 'true')
+  const [specialMode, setSpecialMode] = useState(localStorage.getItem('special_mode') === 'true')
+
+  const [showPasswordInput, setShowPasswordInput] = useState(false)
+  const [passwordInput, setPasswordInput] = useState('')
 
   const clickedHardMode = () => {
     if (hardMode) {
@@ -32,6 +36,31 @@ const SettingsModal = ({ setModal, darkMode, setDarkMode }) => {
 
     localStorage.setItem('super_hard_mode', !superHardMode)
     setSuperHardMode(!superHardMode)
+  }
+
+  const clickedSpecialMode = () => {
+    if (!specialMode) {
+      if (localStorage.getItem('given_password_before') === 'true') {
+        setSpecialMode(true)
+        localStorage.setItem('special_mode', 'true')
+      } else {
+        setShowPasswordInput(true)
+      }
+    } else {
+      localStorage.setItem('special_mode', 'false')
+      setSpecialMode(false)
+    }
+  }
+
+  const submitPassword = () => {
+    if (passwordInput === process.env.REACT_APP_PASSWORD) {
+      localStorage.setItem('special_mode', 'true')
+      localStorage.setItem('given_password_before', 'true')
+      setSpecialMode(true)
+    } else {
+      localStorage.setItem('special_mode', 'false')
+      setSpecialMode(false)
+    }
   }
 
   return <Modal darkMode={darkMode}>
@@ -68,6 +97,24 @@ const SettingsModal = ({ setModal, darkMode, setDarkMode }) => {
                         Randomly rotate the image!
                 </Description>
             </div>
+            <div>
+                <Row>
+                    Special Mode:
+                    <Toggle
+                        checked={specialMode}
+                        onChange={() => { clickedSpecialMode() }}
+                    />
+                </Row>
+                <Description>
+                        A secret mode for select people...
+                </Description>
+            </div>
+            {showPasswordInput &&
+              <PasswordContainer>
+                <PasswordInput placeholder={'Enter secret password'} value={passwordInput} onChange={(e) => setPasswordInput(e.target.value)} />
+                <PasswordSubmit onClick={() => { submitPassword() }} >Submit</PasswordSubmit>
+              </PasswordContainer>
+            }
   </Modal>
 }
 

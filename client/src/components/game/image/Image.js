@@ -9,21 +9,21 @@ const Image = ({ length, img, isOver, person, darkMode }) => {
 
   const rotate = superHardMode ? Math.floor(rng() * 3 + 1) * 90 : 0
 
-  img = img !== null ? img.substring(0, img.length - 6) : null
+  const specialMode = localStorage.getItem('special_mode') === 'true'
+  if (!specialMode) { img = img !== null ? img.substring(0, img.length - 6) : null }
 
   const blurmap = {
-    0: 12,
-    1: 9,
-    2: 6,
-    3: 4,
-    4: 2,
-    5: 0
+    0: specialMode ? 20 : 12,
+    1: specialMode ? 16 : 9,
+    2: specialMode ? 13 : 6,
+    3: specialMode ? 9 : 4,
+    4: specialMode ? 5 : 2,
+    5: specialMode ? 0 : 0
   }
 
   return <ImageContainer darkMode={darkMode}>
-          <BlurredImage src={img} blur={blurmap[length]} rotate={rotate}></BlurredImage>
+          <BlurredImage src={img} blur={blurmap[length]} rotate={rotate} specialMode={specialMode}></BlurredImage>
           {isOver && <PersonName darkMode={darkMode}>{person}</PersonName>}
-
         </ImageContainer>
 }
 
