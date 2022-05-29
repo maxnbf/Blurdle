@@ -53,7 +53,7 @@ const SettingsModal = ({ setModal, darkMode, setDarkMode }) => {
   }
 
   const submitPassword = () => {
-    if (passwordInput === process.env.REACT_APP_PASSWORD) {
+    if (passwordInput === 'aepiskp1913') {
       localStorage.setItem('special_mode', 'true')
       localStorage.setItem('given_password_before', 'true')
       setSpecialMode(true)
