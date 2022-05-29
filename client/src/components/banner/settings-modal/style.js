@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const Modal = styled.div`
     min-width: 90%;
     max-width: 95%;
-    min-height: 300px;
+    min-height: 350px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -40,4 +40,22 @@ export const Description = styled.div`
     margin-left: auto;
     margin-right: auto;
     padding-left: 20px;
+`
+
+export const PasswordContainer = styled.div`
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    margin-top: 10px;
+`
+
+export const PasswordInput = styled.input`
+  width: 70%;
+`
+
+export const PasswordSubmit = styled.div`
+  margin-left: 15px;
+  margin-top: auto;
+  margin-bottom: auto;
 `

@@ -2,8 +2,9 @@ import { useCallback, useEffect, useState } from 'react'
 import seedrandom from 'seedrandom'
 import { loadAllGuesses, saveGuesses } from '../helpers/helpers'
 import { options } from '../helpers/options'
+import { specialOptions } from '../helpers/special_options'
 
-export const useToday = (todayString) => {
+export const useToday = (todayString, specialMode) => {
   const [today, setToday] = useState({
     person: null,
     image: null,
@@ -23,7 +24,7 @@ export const useToday = (todayString) => {
         image: prev.image,
         guesses: newGuesses
       }))
-      saveGuesses(todayString, newGuesses)
+      saveGuesses(todayString, newGuesses, specialMode)
     },
     [today, todayString]
   )
@@ -31,12 +32,21 @@ export const useToday = (todayString) => {
   useEffect(() => {
     const rng = seedrandom(todayString)
 
-    const guesses = loadAllGuesses()[todayString] ?? []
-    const option = Math.floor(rng() * options.length)
-    const person = options[option]
+    const num = rng()
+
+    let guesses, person
+    if (!specialMode) {
+      guesses = loadAllGuesses(specialMode)[todayString] ?? []
+      const option = Math.floor(num * options.length)
+      person = options[option]
+    } else {
+      guesses = loadAllGuesses(specialMode)[todayString] ?? []
+      const option = Math.floor(num * 81)
+      person = specialOptions[option]
+    }
 
     setToday({ person: person.name, image: person.image, guesses })
-  }, [todayString])
+  }, [todayString, specialMode])
 
   return { today, addGuess }
 }

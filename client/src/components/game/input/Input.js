@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { names } from '../../../helpers/options'
+import { specialOptions } from '../../../helpers/special_options'
 import { GuessButton, TypeaheadInput } from './style'
 
-const Input = ({ options, addGuess, isOver, darkMode }) => {
+const Input = ({ addGuess, isOver, darkMode, specialMode }) => {
   const [selection, setSelection] = useState([])
 
   const handleGuess = () => {
@@ -12,7 +13,10 @@ const Input = ({ options, addGuess, isOver, darkMode }) => {
     }
   }
 
-  const typeaheadOptions = names.sort((a, b) => (a > b ? 1 : -1))
+  const specialNames = specialOptions.map(option => option.name)
+
+  const namesList = specialMode ? specialNames : names
+  const typeaheadOptions = namesList.sort((a, b) => (a > b ? 1 : -1))
 
   return (
     <>

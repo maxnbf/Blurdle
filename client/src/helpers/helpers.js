@@ -1,12 +1,17 @@
-export const loadAllGuesses = () => {
-  const storedGuesses = localStorage.getItem('guesses')
-  return storedGuesses != null ? JSON.parse(storedGuesses) : {}
+export const loadAllGuesses = (specialMode) => {
+  if (specialMode) {
+    const storedGuesses = localStorage.getItem('special_guesses')
+    return storedGuesses != null ? JSON.parse(storedGuesses) : {}
+  } else {
+    const storedGuesses = localStorage.getItem('guesses')
+    return storedGuesses != null ? JSON.parse(storedGuesses) : {}
+  }
 }
 
-export const saveGuesses = (dayString, guesses) => {
-  const allGuesses = loadAllGuesses()
+export const saveGuesses = (dayString, guesses, specialMode) => {
+  const allGuesses = loadAllGuesses(specialMode)
   localStorage.setItem(
-    'guesses',
+    specialMode ? 'special_guesses' : 'guesses',
     JSON.stringify({
       ...allGuesses,
       [dayString]: guesses
@@ -137,4 +142,14 @@ export const getDayValue = (date) => {
 
 export const getMonthValue = (date) => {
   return parseInt(date.substring(3, 5))
+}
+
+export const getSpecialDayNumber = () => {
+  const start = new Date('5/28/2022')
+  const end = new Date()
+  const dayNumber = Math.ceil(
+    (end.getTime() - start.getTime()) / (1000 * 3600 * 24)
+  )
+
+  return dayNumber - 1
 }
