@@ -13,10 +13,10 @@ const Image = ({ length, img, isOver, person, darkMode }) => {
   if (!specialMode) { img = img !== null ? img.substring(0, img.length - 6) : null }
 
   const blurmap = {
-    0: specialMode ? 20 : 12,
-    1: specialMode ? 16 : 9,
-    2: specialMode ? 13 : 6,
-    3: specialMode ? 9 : 4,
+    0: specialMode ? 16 : 12,
+    1: specialMode ? 13 : 9,
+    2: specialMode ? 11 : 6,
+    3: specialMode ? 7 : 4,
     4: specialMode ? 5 : 2,
     5: specialMode ? 0 : 0
   }
