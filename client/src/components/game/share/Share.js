@@ -5,7 +5,9 @@ import xButton from '../../../x.svg'
 
 const Share = ({ guesses, person }) => {
   const text = useMemo(() => {
-    const start = new Date('5/9/2022')
+    const specialMode = localStorage.getItem('special_mode') === 'true'
+
+    const start = new Date(specialMode ? '5/28/2022' : '5/9/2022')
     const end = new Date()
     const dayNumber = Math.ceil(
       (end.getTime() - start.getTime()) / (1000 * 3600 * 24)
@@ -24,6 +26,7 @@ const Share = ({ guesses, person }) => {
     }
     const hardMode = localStorage.getItem('hard_mode') === 'true' ? '*' : ''
     const superHardMode = localStorage.getItem('super_hard_mode') === 'true' ? '*' : ''
+
     const result = Array.from(Array(5).keys())
       .map((index) => {
         if (guesses[index] !== person && index < guesses.length) {
@@ -36,13 +39,14 @@ const Share = ({ guesses, person }) => {
       })
       .join('')
     return [
-      `Blurdle #${dayNumber} ${numGuesses}/5${hardMode}${superHardMode}\n`,
+      `${specialMode ? 'Special Blurdle' : 'Blurdle'} #${dayNumber} ${numGuesses}/5${hardMode}${superHardMode}\n`,
       result,
       `\nCurrent streak: ${currStreak}\n${includeLink}`
     ].join('\n')
   }, [guesses, person])
 
   const [copied, setCopied] = useState(false)
+
   const shareClicked = () => {
     if (
       navigator.userAgent.match(/Android/i) ||
