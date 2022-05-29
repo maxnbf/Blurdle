@@ -19,7 +19,7 @@ const Game = ({ darkMode }) => {
   if (!isOver && (guesses.includes(person) || guesses.length === 5)) {
     setIsOver(true)
 
-    setStats(person, guesses, getDate())
+    if (!specialMode) setStats(person, guesses, getDate())
   }
 
   useEffect(() => {
