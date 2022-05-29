@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { getDate, setStats } from '../../helpers/helpers'
 import { options } from '../../helpers/options'
 import { useToday } from '../../hooks/useToday'
@@ -9,7 +9,9 @@ import Share from './share/Share'
 import { Container } from './style'
 
 const Game = ({ darkMode }) => {
-  const { today, addGuess } = useToday(getDate())
+  const specialMode = localStorage.getItem('special_mode') === 'true'
+
+  const { today, addGuess } = useToday(getDate(), specialMode)
   const { person, image, guesses } = today
 
   const [isOver, setIsOver] = useState(false)
@@ -17,8 +19,16 @@ const Game = ({ darkMode }) => {
   if (!isOver && (guesses.includes(person) || guesses.length === 5)) {
     setIsOver(true)
 
-    setStats(person, guesses, getDate())
+    if (!specialMode) setStats(person, guesses, getDate())
   }
+
+  useEffect(() => {
+    if (!isOver && (guesses.includes(person) || guesses.length === 5)) {
+      setIsOver(true)
+    } else {
+      setIsOver(false)
+    }
+  }, [guesses])
 
   return (
     <Container>
@@ -35,7 +45,7 @@ const Game = ({ darkMode }) => {
         <Share guesses={guesses} person={person} />
           )
         : (
-        <Input options={options} addGuess={addGuess} isOver={isOver} />
+        <Input options={options} addGuess={addGuess} isOver={isOver} specialMode={specialMode}/>
           )}
     </Container>
   )

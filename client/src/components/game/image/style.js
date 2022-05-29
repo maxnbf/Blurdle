@@ -4,7 +4,8 @@ export const BlurredImage = styled.img`
 
   filter: blur(${(props) => props.blur}px);
   width: 262px;
-  height: 262px;
+  height: ${props => props.specialMode ? '465px' : '262px'};
+  margin-top: ${props => props.specialMode ? '-40px' : '0px'};
   position: relative;
   transform: rotate(${(props) => props.rotate}deg);
   pointer-events: none;
